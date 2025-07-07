@@ -23,7 +23,7 @@ class Card:
             return "X"
         return {
             CardValue.JACK: "J",
-            CardValue.ACE: "A",
+            CardValue.ACE: "1",
             CardValue.TWO: "2",
             CardValue.THREE: "3",
             CardValue.FOUR: "4"

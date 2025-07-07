@@ -340,18 +340,23 @@ class CollapsiGUI:
                 for player_id, player_pos in self.game.board.player_positions.items():
                     if player_pos == pos:
                         player_color = self.colors['player1'] if player_id == 0 else self.colors['player2']
+                        # Draw smaller player piece in the corner
+                        piece_size = 25
+                        offset = 5
                         self.canvas.create_oval(
-                            x + 10, y + 10,
-                            x + self.cell_size - 10, y + self.cell_size - 10,
+                            x + self.cell_size - piece_size - offset,
+                            y + offset,
+                            x + self.cell_size - offset,
+                            y + piece_size + offset,
                             fill=player_color,
                             outline='white',
-                            width=3
+                            width=2
                         )
                         self.canvas.create_text(
-                            x + self.cell_size // 2,
-                            y + self.cell_size // 2,
+                            x + self.cell_size - piece_size//2 - offset,
+                            y + piece_size//2 + offset,
                             text=f"P{player_id + 1}",
-                            font=('Arial', 16, 'bold'),
+                            font=('Arial', 10, 'bold'),
                             fill='white'
                         )
                         
