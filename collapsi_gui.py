@@ -7,6 +7,7 @@ import time
 from collapsi_core import Game, Position, GameState, CardValue
 from player_interface import Player, HumanPlayer, RandomAIPlayer
 from example_ai_player import GreedyAIPlayer, DefensiveAIPlayer
+from perfect_ai_player import PerfectAIPlayer
 
 
 class CollapsiGUI:
@@ -128,7 +129,7 @@ class CollapsiGUI:
             ttk.Combobox(
                 frame,
                 textvariable=var,
-                values=["Human", "Random AI", "Greedy AI", "Defensive AI"],
+                values=["Human", "Random AI", "Greedy AI", "Defensive AI", "Perfect AI"],
                 state="readonly",
                 width=15
             ).pack(side=tk.LEFT)
@@ -177,6 +178,8 @@ class CollapsiGUI:
             return GreedyAIPlayer(player_id)
         elif player_type == "Defensive AI":
             return DefensiveAIPlayer(player_id)
+        elif player_type == "Perfect AI":
+            return PerfectAIPlayer(player_id)
         
     def start_new_game(self):
         self.game = Game()
